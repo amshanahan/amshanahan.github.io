@@ -1,0 +1,41 @@
+# Quick Start Guide for ownCloud
+
+ownCloud has two main parts:
+
+* ownCloud server for storing and managing files securely in the cloud
+
+* ownCloud client for accessing files stored on the ownCloud server from a local computer or mobile device
+
+This guide describes for administrators a quick path for installing and configuring an ownCloud server. It also provides step-by-step instructions for users on how to download and connect to the ownCloud server. 
+
+## ownCloud Administrators
+
+Follow these steps to install and configure ownCloud server. 
+
+1. Download the ownCloud installation file for your environment.
+
+2. Double-click the downloaded file to install ownCloud.
+
+   When the installation completes, click *Finish* to start the ownCloud server.
+   
+3. Click *Settings* to configure the ownCloud server. 
+
+   * For IP address, type the IP address for the ownCloud server.
+   * For Port, specify 8080.
+   
+4. To save and close server settings, click *Save*. 
+
+5. Click *Users* to add user accounts to the ownCloud server.
+ 
+   For each user, complete these fields: 
+   * Name
+   * Email address
+
+6. To save and close User settings, click *Save*.
+
+## ownCloud Users
+
+Install and configure an ownCloud server
+
+Connect to the ownCloud server using a desktop or mobile client.
+
