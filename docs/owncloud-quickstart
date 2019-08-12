@@ -1,41 +1,61 @@
-# Quick Start Guide for ownCloud
-
-ownCloud has two main parts:
-
-* ownCloud server for storing and managing files securely in the cloud
-
-* ownCloud client for accessing files stored on the ownCloud server from a local computer or mobile device
-
-This guide describes for administrators a quick path for installing and configuring an ownCloud server. It also provides step-by-step instructions for users on how to download and connect to the ownCloud server. 
-
-## ownCloud Administrators
-
-Follow these steps to install and configure ownCloud server. 
-
-1. Download the ownCloud installation file for your environment.
-
-2. Double-click the downloaded file to install ownCloud.
-
-   When the installation completes, click *Finish* to start the ownCloud server.
-   
-3. Click *Settings* to configure the ownCloud server. 
-
-   * For IP address, type the IP address for the ownCloud server.
-   * For Port, specify 8080.
-   
-4. To save and close server settings, click *Save*. 
-
-5. Click *Users* to add user accounts to the ownCloud server.
+# Quick Start Guide for ownCloud 
+## About ownCloud
+ownCloud provides secure storage and access control for files on a host server. It also enables users to access those files for sharing and synchronization on their local computers. 
+The ownCloud server runs on Linux, either on-premises or in the cloud. ownCloud client applications run on Linux, Microsoft Windows, Mac OS, Android, and Apple iOS.
+## About this Guide
+This guide provides a quick path to getting started with ownCloud. 
+•	For administrators, this guide describes how to download and install the ownCloud server appliance in VirtualBox. It also describes how to configure host and domain settings, and add user accounts.
+o	The ownCloud server appliance includes the ownCloud Server 10.2.1 virtual image, plus all components the server needs to run, such as Apache2, PHP, and MySql. 
+o	Oracle VM VirtualBox is a free virtualization product suitable for enterprise or home use. 
+_Note_: If it’s not already installed, download and install VirtualBox from here: https://www.virtualbox.org/wiki/Downloads
+•	For users, this guide describes how to download the ownCloud client and use it to connect to the ownCloud server. 
+## ownCloud Administrators 
+### Download the ownCloud server appliance
+1.	In your browser, go to https://owncloud.com/download/.
+2.	Under _OwnCloud X Server Appliance_, click _Download_.
+3.	Type your email address.
+4.	From the _Download Version_ drop-down list, select _ownCloud Server Appliance (VirtualBox) _.
+5.	Review terms and conditions, and select _Accept Terms and Conditions_.
+6.	Click Download ownCloud to download the file *Univention-App-owncloud-virtualbox.ova*.
+### Import the ownCloud server appliance
+1.	In VirtualBox, cick _File > Import Appliance_.
+2.	Locate and select the downloaded file, *Univention-App-owncloud-virtualbox.ova*.
+3.	Click _Import_.
+After the file import completes, the list of VMs in VirtualBox includes a VM named *UCS 4.4-with-owncloud*. 
+### Install and configure the ownCloud appliance
+1.	In VirtualBox, click to open the*UCS 4.4-with-owncloud* VM. 
+The ownCloud installer wizard opens. 
+2.	Modify the following configuration settings as needed:
+•	Localization settings
+•	Domain setup 
+•	Account information
+•	Host settings
+3.	To confirm your configuration settings, click _Configure System_.
+4.	Click to accept the software license and then click _Continue_.
+When the installation completes, the *ownCloud Appliance* screen appears. 
  
-   For each user, complete these fields: 
-   * Name
-   * Email address
+_Note_: The IP address is required for the next step.
+### Activate the ownCloud appliance in UCS
+1.	In your browser, navigate to the IP address for the ownCloud appliance. 
+•	If you see a message that your connection is not private, click _Advanced_, and then click the link to proceed to the IP address you specified.
+•	If a message about an untrusted certificate appears, click _Allow_ and enter your password if necessary. 
+The *License request for ownCloud Appliance* dialog box appears. 
+2.	Type your email address and click _Request Activation_.
+The *Activation of ownCloud Appliance* dialog box appears.
+3.	Follow instructions to obtain a license key for activating the ownCloud appliance in UCS.
+a.	Click _Upload License File_.
+b.	Locate and select the downloaded license file and click _Open_. 
+c.	To complete successful activation, click _Finish_.
+The *Univention Portal* opens, which provides a central view of all services available in your UCS domain.
+ 
+4.	Click _UCS System and domain settings_ 
+5.	Log in with your administrator credentials.
+The Univention management console opens, from which you can manage ownCloud users for the domain.
+ 
 
-6. To save and close User settings, click *Save*.
-
-## ownCloud Users
-
-Install and configure an ownCloud server
-
-Connect to the ownCloud server using a desktop or mobile client.
-
+### Add Users
+LDAP users can log into ownCloud using their LDAP credentials. To add non-LDAP users to ownCloud, follow these steps. 
+With the UCS management system, all the components of the UCS domain can be centrally administrated across computer, operating system and site boundaries. It thus provides a single point of administration for the domain. One primary element of the UCS management system is an LDAP directory in which the data required across the domain for the administration are stored. In addition to the user accounts and similar elements, the data basis of services such as DHCP is also saved there. The central data management in the LDAP directory avoids not only the repeated entry of the same data, but also reduces the probability of errors and inconsistencies.
+1.	In your browser, open the Univention Portal by navigating to the IP address for the ownCloud appliance. 
+## ownCloud users
+If you have any problems connecting to the server with the correct URL, try connecting through port 8080 (for a proxy server), by specifying the URL as follows:
